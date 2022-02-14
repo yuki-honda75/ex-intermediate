@@ -6,10 +6,10 @@
 </head>
 <body>
   <h1>野球チーム一覧</h1>
-  <div th:if="${teamList != ''}" th:each="team : ${teamList}">
+  <div th:each="team : ${teamList}">
 	  <a th:text="${team.teamName}" th:href="@{/ex01/showDetail?id=} + ${team.id}">チーム</a>
 	  <p></p>
   </div>
-  <span th:unless="${teamList != ''}" th:text="一件もデータが存在しません"></span>
+  <span th:text="${noting}"></span>
 </body>
 </html>

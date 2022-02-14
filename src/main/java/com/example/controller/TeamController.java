@@ -24,6 +24,10 @@ public class TeamController {
 	@RequestMapping("")
 	public String showList(Model model) {
 		List<Team> teamList = teamService.showList();
+		if (teamList.isEmpty()) {
+			model.addAttribute("noting", "一件もデータがありません");
+			return "ex01";
+		}
 		model.addAttribute("teamList", teamList);
 		
 		return "ex01";
