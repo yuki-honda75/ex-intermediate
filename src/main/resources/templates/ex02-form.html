@@ -7,8 +7,9 @@
 </head>
 <body>
   <h1>ホテル検索</h1>
-  <form action="ex02-form.html" th:action="@{/ex02/search}" method="get">
-    <input type="number" name="price">円以下<br>
+  <form action="ex02-form.html" th:action="@{/ex02/search}" method="get" th:object="${hotelForm}">
+    <span class="error" th:errors="*{price}"></span><br>
+    <input type="number" name="price" th:field="*{price}">円以下<br>
     <button type="submit">検索</button>
   </form>
   <div th:if="!${#lists.isEmpty(hotelList)}">
@@ -28,6 +29,9 @@
 	      </tr>
 	    </tbody>
     </table>
+  </div>
+  <div th:unless="!${#lists.isEmpty(hotelList)}">
+    <span th:text="一致するホテル情報が存在しませんでした"></span>
   </div>
 </body>
 </html>
