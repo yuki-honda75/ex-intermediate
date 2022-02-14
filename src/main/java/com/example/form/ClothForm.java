@@ -1,5 +1,7 @@
 package com.example.form;
 
+import javax.validation.constraints.NotEmpty;
+
 /**
  * 
  * @author hondayuki
@@ -7,9 +9,11 @@ package com.example.form;
  */
 public class ClothForm {
 	/** カラー */
+	@NotEmpty(message = "選択してください")
 	private String color;
 	/** 性別 */
-	private Integer gender;
+	@NotEmpty(message = "選択してください")
+	private String gender;
 	
 	public String getColor() {
 		return color;
@@ -17,10 +21,13 @@ public class ClothForm {
 	public void setColor(String color) {
 		this.color = color;
 	}
-	public Integer getGender() {
+	public String getGender() {
 		return gender;
 	}
-	public void setGender(Integer gender) {
+	public Integer getIntGender() {
+		return Integer.parseInt(gender);
+	}
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 	

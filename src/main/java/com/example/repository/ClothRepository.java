@@ -18,7 +18,7 @@ import com.example.domain.Cloth;
  */
 @Repository
 public class ClothRepository {
-	private static final RowMapper<Cloth> CLOTH_ROW_MAPPER = new BeanPropertyRowMapper<>();
+	private static final RowMapper<Cloth> CLOTH_ROW_MAPPER = new BeanPropertyRowMapper<>(Cloth.class);
 	
 	@Autowired
 	private NamedParameterJdbcTemplate template;
@@ -27,10 +27,12 @@ public class ClothRepository {
 		String sql = "select * from clothes where 1 = 1";
 		MapSqlParameterSource param = new MapSqlParameterSource();
 		if (color != null) {
-			sql += " and color=:color";
+			sql += " and color = :color";
+			param.addValue("color", color);
 		}
 		if (gender != null) {
-			sql += " and gender=:gender";
+			sql += " and gender = :gender";
+			param.addValue("gender", gender);
 		}
 		sql += " order by price desc";
 		

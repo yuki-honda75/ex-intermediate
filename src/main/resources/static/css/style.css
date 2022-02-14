@@ -20,6 +20,14 @@ table {
 	background-color: #b0c4de;
 }
 
+.cloth {
+	text-align: left;
+}
+
 .error {
 	color: red;
+}
+
+.d-flex {
+	display: flex;
 }

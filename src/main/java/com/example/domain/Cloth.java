@@ -11,7 +11,7 @@ public class Cloth {
 	/** カテゴリー */
 	private String category;
 	/** ジャンル */
-	private String genru;
+	private String genre;
 	/** 性別 */
 	private Integer gender;
 	/** カラー */
@@ -33,11 +33,11 @@ public class Cloth {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public String getGenru() {
-		return genru;
+	public String getGenre() {
+		return genre;
 	}
-	public void setGenru(String genru) {
-		this.genru = genru;
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 	public Integer getGender() {
 		return gender;
@@ -66,7 +66,7 @@ public class Cloth {
 	@Override
 	public String toString() {
 		return "Cloth [id=" + id + ", category=" + category
-				+ ", genru=" + genru + ", gender=" + gender
+				+ ", genru=" + genre + ", gender=" + gender
 				+ ", color=" + color + ", price=" + price
 				+ ", size=" + size + "]";
 	}
