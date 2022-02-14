@@ -1,8 +1,9 @@
 package com.example.form;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
-import org.hibernate.validator.constraints.Range;
+
 
 /**
  * 
@@ -11,8 +12,7 @@ import org.hibernate.validator.constraints.Range;
  */
 public class HotelForm {
 	/** 価格 */
-	@Range(min = 1, max = 300000, message = "価格は300,000までの値で入力してください")
-	@Pattern(regexp = "^[0-9]+$", message = "正の数字を入力してください")
+	@Pattern(regexp = "^[0-9]|[1-9][0-9]{1,4}|[1-2][0-9]{5}|300000|$", message = "値段は最大300000までの入力にしてください")
 	private String price;
 
 	public String getPrice() {

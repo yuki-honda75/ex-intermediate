@@ -41,7 +41,13 @@ public class HotelController {
 		if (result.hasErrors()) {
 			return index();
 		}
-		List<Hotel> hotelList = hotelService.findByPrice(Integer.parseInt(form.getPrice()));
+		Integer price;
+		if (form.getPrice() == "") {
+			price = null;
+		} else {
+			price = Integer.parseInt(form.getPrice());
+		}
+		List<Hotel> hotelList = hotelService.findByPrice(price);
 		model.addAttribute("hotelList", hotelList);
 		
 		return index();
