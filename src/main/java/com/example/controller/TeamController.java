@@ -32,8 +32,9 @@ public class TeamController {
 	@RequestMapping("/showDetail")
 	public String showDetail(String id, Model model) {
 		Team team = teamService.showDetail(Integer.parseInt(id));
-		System.out.println(team.getHistory());
+		String[] histories = team.getHistory().split("\n");
 		model.addAttribute("team", team);
+		model.addAttribute("histories", histories);
 		
 		return "ex01-detail";
 	}

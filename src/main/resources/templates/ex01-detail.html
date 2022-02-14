@@ -12,7 +12,7 @@
   <h1>発足</h1>
   <p th:text="${team.inauguration}">dummy</p>
   <h1>歴史</h1>
-  <p th:text="${team.history}">dummy</p>
+  <p th:each="history : ${histories}" th:text="${history}">dummy</p>
   <a th:href="@{/ex01}"><button>戻る</button></a>
 </body>
 </html>
