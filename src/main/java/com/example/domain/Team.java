@@ -15,7 +15,7 @@ public class Team {
 	/** 本拠地 */
 	private String headquarters;
 	/** 発足 */
-	private String inauration;
+	private String inauguration;
 	/** 歴史 */
 	private String history;
 	
@@ -43,11 +43,11 @@ public class Team {
 	public void setHeadquarters(String headquarters) {
 		this.headquarters = headquarters;
 	}
-	public String getInauration() {
-		return inauration;
+	public String getInauguration() {
+		return inauguration;
 	}
-	public void setInauration(String inauration) {
-		this.inauration = inauration;
+	public void setInauguration(String inauguration) {
+		this.inauguration = inauguration;
 	}
 	public String getHistory() {
 		return history;
@@ -60,7 +60,7 @@ public class Team {
 		return "Team [id=" + id + ", leagueName="
 				+ leagueName + ", teamName=" + teamName
 				+ ", headquarters=" + headquarters
-				+ ", inauration=" + inauration
+				+ ", inauration=" + inauguration
 				+ ", history=" + history + "]";
 	}
 	
