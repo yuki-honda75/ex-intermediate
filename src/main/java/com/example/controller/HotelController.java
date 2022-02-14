@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -28,6 +29,11 @@ public class HotelController {
 	@Autowired
 	private HotelService hotelService;
 	
+	@ModelAttribute
+	public HotelForm setUpHotelForm() {
+		return new HotelForm();
+	}
+	
 	@RequestMapping("")
 	public String index() {
 		return "ex02-form";
@@ -41,12 +47,14 @@ public class HotelController {
 		if (result.hasErrors()) {
 			return index();
 		}
+		
 		Integer price;
 		if (form.getPrice() == "") {
 			price = null;
 		} else {
 			price = Integer.parseInt(form.getPrice());
 		}
+		
 		List<Hotel> hotelList = hotelService.findByPrice(price);
 		model.addAttribute("hotelList", hotelList);
 		
