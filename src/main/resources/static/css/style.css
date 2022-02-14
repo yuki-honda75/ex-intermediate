@@ -1,0 +1,21 @@
+button {
+	margin-top: 8px;
+}
+
+table {
+	width: 300px;
+	margin-top: 8px;
+	text-align: center;
+}
+
+.h {
+	width: 30%;
+}
+
+.odd {
+	background-color: #dcdcdc;
+}
+
+.even {
+	background-color: #b0c4de;
+}

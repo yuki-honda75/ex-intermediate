@@ -2,6 +2,7 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 <title>ex02</title>
 </head>
 <body>
@@ -12,18 +13,20 @@
   </form>
   <div th:if="!${#lists.isEmpty(hotelList)}">
     <table th:each="hotel : ${hotelList}" border="1">
-      <tr>
-        <td>ホテル名</td>
-        <td th:text="${hotel.hotelName}">dummy</td>
-      </tr>
-      <tr>
-        <td>最寄駅</td>
-        <td th:text="${hotel.nearestStation}">dummy</td>
-      </tr>
-      <tr>
-        <td>価格</td>
-        <td th:text="${hotel.price}">dummy</td>
-      </tr>
+	    <tbody>
+	      <tr class="odd">
+	        <td class="h">ホテル名</td>
+	        <td class="item" th:text="${hotel.hotelName}">dummy</td>
+	      </tr>
+	      <tr class="even">
+	        <td class="h">最寄駅</td>
+	        <td th:text="${hotel.nearestStation}">dummy</td>
+	      </tr>
+	      <tr class="odd">
+	        <td class="h">価格</td>
+	        <td th:text="${#numbers.formatInteger(hotel.price, 1 , 'COMMA')}">dummy</td>
+	      </tr>
+	    </tbody>
     </table>
   </div>
 </body>

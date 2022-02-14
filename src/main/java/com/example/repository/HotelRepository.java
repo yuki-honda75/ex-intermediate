@@ -30,7 +30,7 @@ public class HotelRepository {
 			sql += " where price <= :price";
 			param.addValue("price", price);
 		}
-		
+		sql += " order by price desc";
 		List<Hotel> hotelList = template.query(sql, param, HOTEL_ROW_MAPPER);
 		return hotelList;
 	}
